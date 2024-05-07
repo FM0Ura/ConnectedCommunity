@@ -3,13 +3,22 @@ from django.http import HttpResponse
 
 
 # Create your views here.
-def helloWorld(request):
-    return HttpResponse("HelloWorld!")
+
+def index(request):
+    return render(request, 'main/index.html')
 
 
-def landingPage(request):
-    return render(request, 'main/landingpage.html')
+def tarefas(request):
+    return render(request, 'main/tarefas.html')
 
 
-def oi(request):
-    return render(request, 'main/oi.html')
+def conversas(request):
+    return render(request, 'main/conversas.html')
+
+
+def comunidades(request):
+    return render(request, 'main/comunidades.html')
+
+
+def busca(request):
+    return render(request, 'main/busca.html')
