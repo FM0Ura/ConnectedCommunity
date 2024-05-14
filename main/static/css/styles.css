@@ -32,3 +32,10 @@
   color: #333;
   letter-spacing: 1px;
 }
+
+/* conversas.html */
+#contats-block {
+  background-color: rebeccapurple;
+  width: 30%;
+  height: 100%;
+}

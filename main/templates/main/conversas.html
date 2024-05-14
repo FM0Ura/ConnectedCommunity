@@ -1,6 +1,48 @@
 {% extends 'base.html' %}
 
 {% block title %}Conversas - Connected Community{% endblock %}
-
 {% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <!-- Lista de conversas -->
+            <div class="card">
+                <div class="card-header">Conversas</div>
+                <div class="card-body">
+                    <ul class="list-group">
+                        {% for grupo in grupos %}
+                        <li class="list-group-item">
+                            <a href="?grupo_id={{ grupo.id }}">{{ grupo.titulo_grupo }}</a>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-8">
+            <!-- Mensagens -->
+            <div class="card">
+                <div class="card-header">Mensagens</div>
+                <div class="card-body">
+                    {% if grupo_selecionado %}
+                    <h4>{{ grupo_selecionado.titulo_grupo }}</h4>
+                    {% if mensagens %}
+                    <ul class="list-group">
+                        {% for mensagem in mensagens %}
+                        <li class="list-group-item">{{ mensagem.conteudo }}</li>
+                        {% endfor %}
+                    </ul>
+                    {% else %}
+                    <p>Sem mensagens</p>
+                    {% endif %}
+
+
+                    {% else %}
+                    <p>Selecione uma conversa para ver o histórico de mensagens.</p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock %}

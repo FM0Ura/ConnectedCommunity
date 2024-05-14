@@ -1,5 +1,5 @@
-from django.shortcuts import render
-from django.http import HttpResponse
+from django.shortcuts import render, redirect
+from .models import Main
 
 
 # Create your views here.
@@ -13,7 +13,8 @@ def tarefas(request):
 
 
 def conversas(request):
-    return render(request, 'main/conversas.html')
+    grupos = Main.objects.all()
+    return render(request, 'main/conversas.html', {'grupos': grupos})
 
 
 def comunidades(request):
@@ -22,3 +23,4 @@ def comunidades(request):
 
 def busca(request):
     return render(request, 'main/busca.html')
+
